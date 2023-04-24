@@ -20,6 +20,7 @@ exports.up = async knex => createTableIfNotExists(knex, 'purchases', table => {
   table.float('amount')
   table.string('itemName', 1000)
   table.date('purchaseDate')
+  table.boolean('usedBoardPlus').defaultTo(false)
 
   table.timestamp('createdAt').defaultTo(knex.fn.now())
   table.timestamp('updatedAt').defaultTo(knex.fn.now())
