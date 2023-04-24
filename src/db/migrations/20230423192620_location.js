@@ -11,7 +11,7 @@ exports.up = async knex => createTableIfNotExists(knex, 'locations', table => {
     .string('fullName')
     .notNullable()
 
-  table.string('description')
+  table.string('description', 5000)
   table.string('type')
   table.string('image')
   table.string('externalLink')
