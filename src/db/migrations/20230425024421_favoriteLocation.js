@@ -1,6 +1,6 @@
 const { createTableIfNotExists } = require('../helpers')
 
-exports.up = async knex => createTableIfNotExists(knex, 'purchases', table => {
+exports.up = async knex => createTableIfNotExists(knex, 'favoriteLocations', table => {
   table
     .uuid('id')
     .notNullable()
@@ -17,13 +17,8 @@ exports.up = async knex => createTableIfNotExists(knex, 'purchases', table => {
     .references('users.id')
     .onDelete('CASCADE')
 
-  table.float('amount')
-  table.string('itemName', 1000)
-  table.date('purchaseDate')
-  table.string('paymentMethod')
-
   table.timestamp('createdAt').defaultTo(knex.fn.now())
   table.timestamp('updatedAt').defaultTo(knex.fn.now())
 })
 
-exports.down = async knex => knex.schema.dropTableIfExists('purchases')
+exports.down = async knex => knex.schema.dropTableIfExists('favoriteLocations')

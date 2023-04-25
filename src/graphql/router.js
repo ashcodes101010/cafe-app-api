@@ -1,5 +1,6 @@
 // Adapted from HSA DEV Bootcamp starter code
 const { ApolloServer, makeExecutableSchema } = require('apollo-server-express')
+const context = require('../lib/context')
 const resolvers = require('./resolvers')
 const typeDefs = require('./typeDefs')
 
@@ -11,7 +12,7 @@ const schema = makeExecutableSchema({
 const initializeGraphqlRouter = app => {
   const server = new ApolloServer({
     schema,
-    context: async ({ req, res }) => ({ req, res }),
+    context,
     formatError: error => error,
     introspection: true,
     playground: true,

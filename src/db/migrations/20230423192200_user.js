@@ -8,12 +8,13 @@ exports.up = async knex => createTableIfNotExists(knex, 'users', table => {
     .defaultTo(knex.raw('uuid_generate_v4()'))
 
   table
-    .string('googleSignInId')
+    .string('email')
+    .unique()
     .notNullable()
 
   table.string('firstName').notNullable()
-
   table.string('lastName').notNullable()
+  table.string('fullName')
 
   table.float('boardPlusBalance').defaultTo(65)
 

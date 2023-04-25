@@ -2,6 +2,7 @@ module.exports = {
   appName: 'BoardPlus',
   port: process.env.PORT,
   tokenSecret: process.env.TOKEN_SECRET,
+  tokenLifetime: 2419200,
   db: {
     max_connections: 15,
     host: process.env.DB_HOST,

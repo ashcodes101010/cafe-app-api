@@ -19,6 +19,7 @@ exports.up = async knex => createTableIfNotExists(knex, 'reviews', table => {
 
   table.string('review', 1000)
   table.float('rating')
+  table.boolean('anonymous').defaultTo(false)
 
   table.timestamp('createdAt').defaultTo(knex.fn.now())
   table.timestamp('updatedAt').defaultTo(knex.fn.now())
