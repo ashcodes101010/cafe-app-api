@@ -6,9 +6,15 @@ const addReview = async (obj, { input }, { user: { id: userId } }) => {
   return data
 }
 
+const deleteReview = async (obj, { id }) => {
+  await Review.query().deleteById(id)
+  return id
+}
+
 const resolver = {
   Mutation: {
     addReview,
+    deleteReview,
   },
 }
 

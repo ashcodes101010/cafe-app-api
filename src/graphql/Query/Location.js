@@ -16,12 +16,22 @@ const hours = async obj => {
   return data
 }
 
+const avgRating = async obj => {
+  const data = await obj.$relatedQuery('reviews').select('rating')
+  if (!data.length) {
+    return 0
+  }
+  const total = data.reduce((acc, c) => acc + c.rating, 0);
+  return total / data.length;
+}
+
 const resolver = {
   Query: {
     getLocations,
     getLocation,
   },
   Location: {
+    avgRating,
     hours,
   }
 }

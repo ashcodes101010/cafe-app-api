@@ -1,3 +1,4 @@
+const { BelongsToOneRelation } = require('./BaseModel')
 const BaseModel = require('./BaseModel')
 
 class Review extends BaseModel {
@@ -6,7 +7,27 @@ class Review extends BaseModel {
   }
 
   static get relationMappings() {
-    return {}
+    const User = require('./User')
+    const Location = require('./Location')
+
+    return {
+      user: {
+        relation: BelongsToOneRelation,
+        modelClass: User,
+        join: {
+          from: 'reviews.userId',
+          to: 'users.id',
+        },
+      },
+      location: {
+        relation: BelongsToOneRelation,
+        modelClass: Location,
+        join: {
+          from: 'reviews.locationId',
+          to: 'locations.id',
+        },
+      },
+    }
   }
 }
 

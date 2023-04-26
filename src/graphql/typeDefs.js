@@ -5,6 +5,7 @@ module.exports = gql`
 
   type Mutation {
     addReview(input: ReviewInput): Review
+    deleteReview(id: ID!): ID
     googleSignIn(input: GoogleInput): User
     developerSignIn: User
   }
@@ -13,6 +14,8 @@ module.exports = gql`
     viewer: User
     getLocations: [Location!]
     getLocation(id: ID!): Location!
+    userReviews: [Review!]
+    locationReviews(locationId: ID!): [Review!]
   }
 
   type User {
@@ -35,6 +38,7 @@ module.exports = gql`
     latitude: Float
     shortAddress: String
     longAddress: String
+    avgRating: Float
     hours: [Availability!]
   }
 
@@ -57,15 +61,21 @@ module.exports = gql`
 
   type Review {
     id: ID!
+    userId: ID!
+    locationId: ID!
     review: String
     rating: Float
     anonymous: Boolean
+    reviewerName: String
+    locationName: String
+    createdAt: String
   }
 
   input ReviewInput {
     locationId: String
     review: String
     rating: Float
+    anonymous: Boolean
   }
 
   input GoogleInput {
