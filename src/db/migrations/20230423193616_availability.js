@@ -24,6 +24,7 @@ exports.up = async knex => createTableIfNotExists(knex, 'availabilities', table 
   table.boolean('saturday').defaultTo(true)
   table.boolean('sunday').defaultTo(true)
   table.string('extraInfo').defaultTo('')
+  table.boolean('hoursUncertain').defaultTo(false)
 
   table.timestamp('createdAt').defaultTo(knex.fn.now())
   table.timestamp('updatedAt').defaultTo(knex.fn.now())

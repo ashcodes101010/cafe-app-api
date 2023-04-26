@@ -12,6 +12,7 @@ module.exports = gql`
   type Query {
     viewer: User
     getLocations: [Location!]
+    getLocation(id: ID!): Location!
   }
 
   type User {
@@ -34,6 +35,24 @@ module.exports = gql`
     latitude: Float
     shortAddress: String
     longAddress: String
+    hours: [Availability!]
+  }
+
+  type Availability {
+    id: ID!
+    openHour: Float
+    openMin: Float
+    closeHour: Float
+    closeMin: Float
+    monday: Boolean
+    tuesday: Boolean
+    wednesday: Boolean
+    thursday: Boolean
+    friday: Boolean
+    saturday: Boolean
+    sunday: Boolean
+    extraInfo: String
+    hoursUncertain: Boolean
   }
 
   type Review {

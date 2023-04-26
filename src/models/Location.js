@@ -1,3 +1,4 @@
+const { HasManyRelation } = require('./BaseModel')
 const BaseModel = require('./BaseModel')
 
 class Location extends BaseModel {
@@ -6,7 +7,18 @@ class Location extends BaseModel {
   }
 
   static get relationMappings() {
-    return {}
+    const Availability = require('./Availability')
+
+    return {
+      hours: {
+        relation: HasManyRelation,
+        modelClass: Availability,
+        join: {
+          from: 'locations.id',
+          to: 'availabilities.locationId',
+        },
+      },
+    }
   }
 }
 
