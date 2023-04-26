@@ -38,7 +38,7 @@ module.exports = gql`
     latitude: Float
     shortAddress: String
     longAddress: String
-    avgRating: Float
+    ratingInfo: JSON
     hours: [Availability!]
   }
 
