@@ -4,7 +4,7 @@ module.exports = {
   tokenSecret: process.env.TOKEN_SECRET,
   tokenLifetime: 2419200,
   db: {
-    max_connections: 15,
+    max_connections: 3,
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     database: process.env.DB_DATABASE,
