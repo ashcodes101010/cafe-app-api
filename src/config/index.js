@@ -1,5 +1,5 @@
 module.exports = {
-  appName: 'BoardPlus',
+  appName: 'CrimsonCafes',
   port: process.env.PORT,
   tokenSecret: process.env.TOKEN_SECRET,
   tokenLifetime: 2419200,

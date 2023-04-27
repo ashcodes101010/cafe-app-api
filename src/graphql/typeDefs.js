@@ -2,6 +2,9 @@ const { gql } = require('apollo-server-express')
 
 module.exports = gql`
   scalar JSON
+  scalar DateTime
+  scalar Date
+  scalar Time
 
   type Mutation {
     addReview(input: ReviewInput): Review
@@ -16,6 +19,7 @@ module.exports = gql`
     getLocation(id: ID!): Location!
     userReviews: [Review!]
     locationReviews(locationId: ID!): [Review!]
+    userPurchaseHistory: [Purchase!]
   }
 
   type User {
@@ -68,7 +72,16 @@ module.exports = gql`
     anonymous: Boolean
     reviewerName: String
     locationName: String
-    createdAt: String
+    createdAt: DateTime
+  }
+
+  type Purchase {
+    id: ID!
+    locationId: ID!
+    locationName: String
+    amount: Float
+    paymentMethod: String
+    purchaseDate: Date
   }
 
   input ReviewInput {
