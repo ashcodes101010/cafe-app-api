@@ -21,6 +21,7 @@ module.exports = gql`
     userReviews: [Review!]
     locationReviews(locationId: ID!): [Review!]
     userPurchaseHistory: [Purchase!]
+    boardPlusPurchases: [Purchase!]
   }
 
   type User {
