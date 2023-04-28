@@ -11,6 +11,7 @@ module.exports = gql`
     deleteReview(id: ID!): ID
     googleSignIn(input: GoogleInput): User
     developerSignIn: User
+    updateBPBalance(boardPlusBalance: Float): Float
   }
 
   type Query {
