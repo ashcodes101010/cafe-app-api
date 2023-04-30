@@ -9,6 +9,8 @@ module.exports = gql`
   type Mutation {
     addReview(input: ReviewInput): Review
     deleteReview(id: ID!): ID
+    addPurchase(input: PurchaseInput): Purchase
+    deletePurchase(id: ID!): ID
     googleSignIn(input: GoogleInput): User
     developerSignIn: User
     updateBPBalance(boardPlusBalance: Float): Float
@@ -81,6 +83,13 @@ module.exports = gql`
     id: ID!
     locationId: ID!
     locationName: String
+    amount: Float
+    paymentMethod: String
+    purchaseDate: Date
+  }
+
+  input PurchaseInput {
+    locationId: String
     amount: Float
     paymentMethod: String
     purchaseDate: Date
