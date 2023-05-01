@@ -92,7 +92,7 @@ module.exports = gql`
     locationId: String
     amount: Float
     paymentMethod: String
-    purchaseDate: Date
+    purchaseDate: String
   }
 
   input ReviewInput {
