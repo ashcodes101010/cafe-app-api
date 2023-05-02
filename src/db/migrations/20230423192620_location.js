@@ -19,6 +19,7 @@ exports.up = async knex => createTableIfNotExists(knex, 'locations', table => {
   table.float('latitude')
   table.string('shortAddress')
   table.string('longAddress')
+  table.string('tags')
 
   table.timestamp('createdAt').defaultTo(knex.fn.now())
   table.timestamp('updatedAt').defaultTo(knex.fn.now())
