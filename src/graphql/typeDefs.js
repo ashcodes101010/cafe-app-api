@@ -47,6 +47,7 @@ module.exports = gql`
     shortAddress: String
     longAddress: String
     ratingInfo: JSON
+    tags: String
     hours: [Availability!]
   }
 
